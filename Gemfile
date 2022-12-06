@@ -30,6 +30,12 @@ gem "jbuilder"
 # Use Redis adapter to run Action Cable in production
 gem "redis", "~> 4.0"
 
+# ActiveModel/Record integrations for Elasticsearch
+gem "elasticsearch-model", "6.1"
+
+# Elasticsearch integrations for ActiveModel/Record and Ruby on Rails
+gem "elasticsearch-rails", "6.1"
+
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
 
