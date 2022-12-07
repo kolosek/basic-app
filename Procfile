@@ -1,0 +1,1 @@
+basic-app: bundle exec rails server

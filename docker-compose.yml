@@ -16,13 +16,29 @@ services:
           - '5433:5432'
         volumes:
           - postgres:/var/lib/postgresql/data
+    elasticsearch:
+        image: docker.elastic.co/elasticsearch/elasticsearch:6.4.1
+        container_name: elasticsearch
+        environment:
+          - discovery.type=single-node
+        ports:
+          - '9201:9200'
+        volumes:
+          - elasticsearch:/usr/share/elasticsearch/data
     basic-app:
         build: .
         ports: 
           - '3000:3000'
+        environment:
+          - REDIS_HOST=redis
+          - REDIS_PORT=6378
+          - POSTGRES_USER=ubuntu
+          - POSTGRES_PASSWORD=password
+          - POSTGRES_PORT=5433
         depends_on: 
           - 'redis'
           - 'postgres'
 volumes:
     redis:
     postgres:
+    elasticsearch:
